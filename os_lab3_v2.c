@@ -56,7 +56,6 @@ int randline(int fd, int len) {
     int i=0;
     int r;
     char c;
-    srand(time(NULL));
     
     r = rand() % len;
     while (i < r){
@@ -85,6 +84,8 @@ int main(int argc, char* argv[]) {
     len = atoi(argv[1]);
     char buf[256];
 
+
+    srand(getpid());
     int fd;
     if(argc != 2){
         write(1, "Wrong format.\n", 14);
