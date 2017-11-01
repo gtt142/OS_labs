@@ -66,8 +66,11 @@ int randline(int fd, int len) {
     }
     i = 0;
     while(read(fd, &c, 1) && c != '\n') {
-        pattern[i++] = c;
+    	if (c != '\t')
+	        pattern[i++] = c;
     }
+    while ((i > 0) &&(pattern[i - 1] == ' '))
+    	i--;
     pattern[i] = '\0';
     return(0);
 }
@@ -109,6 +112,8 @@ int main(int argc, char* argv[]) {
         lseek (fd, 0, SEEK_SET);
         randline(fd, strNum);
         len = strlen(pattern);
+        if (len == 0)
+        	continue;
         write(1, pattern, len);
         write(1, "\n", 1);
         textmode(0);
