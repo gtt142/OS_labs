@@ -1,4 +1,6 @@
+// Lab3_OS
 //  Клавиатурный тренажер
+
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
