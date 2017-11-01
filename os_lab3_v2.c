@@ -1,4 +1,4 @@
-// Lab3_OS
+// Lab3_OS_v2
 //  Клавиатурный тренажер
 
 #include <stdlib.h>
